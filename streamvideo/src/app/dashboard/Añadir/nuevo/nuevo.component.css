@@ -1,0 +1,89 @@
+.nuevo-video-container {
+  background-color: black;
+  padding: 60px 48px;
+  border-radius: 8px;
+  width: 450px;
+  text-align: center;
+}
+
+.heading {
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 16px;
+}
+
+.form-field {
+  margin-bottom: 16px;
+}
+
+.input {
+  background-color: rgb(65, 63, 63);
+  padding: 8px 10px;
+  color: white;
+  border: 1px solid #444;
+  border-radius: 4px;
+  width: 100%;
+}
+
+.action-field {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.add-btn, .reset-btn {
+  background-color: red;
+  padding: 8px 12px;
+  border-radius: 2px;
+  color: white;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}
+
+.add-btn {
+  background-color: red;
+}
+
+.reset-btn {
+  background-color: gray;
+}
+
+.videos-list {
+  margin-top: 24px;
+  text-align: left;
+}
+
+.videos-list ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.videos-list li {
+  background-color: #1c1c1c;
+  padding: 12px;
+  margin-bottom: 8px;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.videos-list li p {
+  margin: 0;
+  color: white;
+}
+
+.videos-list button {
+  background-color: #e50914;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.videos-list button:hover {
+  background-color: #f40612;
+}

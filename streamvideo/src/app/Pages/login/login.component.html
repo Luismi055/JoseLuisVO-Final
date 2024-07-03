@@ -1,0 +1,29 @@
+<div class="h-screen" [ngStyle]="{'background-image':'url('+bgUrl+')'}">
+  <div class="header">
+    <img [src]="logoUrl" alt="logo" class="w-52">
+    <div class="flex justify-end">
+      <div>
+      <!-- <button class="DASHBOARD-btn text-white" (click)="goToDashboardLogin()">DASHBOARD</button> -->
+      </div>
+    </div>
+  </div>
+  <div class="login-container">
+    <div class="login-card">
+      <h2 class="heading">Sign In</h2>
+      <form (ngSubmit)="onSubmit()">
+        <div class="form-field flex justify-center">
+          <input type="text" class="input" name="email" [(ngModel)]="email" placeholder="Email or phone number" required />
+        </div>
+        <div class="form-field flex justify-center">
+          <input type="password" class="input" name="password" [(ngModel)]="password" placeholder="Password" required />
+        </div>
+        <div class="action-field">
+          <button class="login-btn" type="submit">Sign In</button>
+        </div>
+      </form>
+      <div class="flex justify-center mt-4">
+        <button class="login-btn" (click)="registerWithGoogle()">Sign In with Google</button>
+      </div>
+    </div>
+  </div>
+</div>

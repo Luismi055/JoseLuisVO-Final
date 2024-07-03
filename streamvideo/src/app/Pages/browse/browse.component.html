@@ -1,0 +1,86 @@
+<div class="browse-page">
+  <app-header></app-header>
+  <div class="banner relative">
+    <ng-container *ngIf="bannerMovie">
+      <ng-container *ngIf="bannerMovie.videoKey; else imageTemplate">
+        <iframe
+          class="banner-video absolute top-0 left-0 w-full h-full"
+          [src]="
+            domSanitise.bypassSecurityTrustResourceUrl(
+              'https://www.youtube.com/embed/' +
+                bannerMovie.videoKey +
+                '?rel=0&autoplay=1&mute=1&showinfo=0&controls=0'
+            )
+          "
+          frameborder="0"
+          allow="autoplay"
+        ></iframe>
+      </ng-container>
+      <ng-template #imageTemplate>
+        <img
+          class="banner-img w-full h-full object-cover"
+          [src]="tmdbConfig.imagePath + bannerMovie.poster_path"
+          alt="banner image"
+        />
+      </ng-template>
+    </ng-container>
+    <div class="banner-movie-info absolute bottom-0 left-0 p-8 text-white" *ngIf="bannerMovie">
+      <h4 class="banner-heading text-4xl font-bold">{{ bannerMovie.original_title }}</h4>
+      <p class="banner-description mt-4 text-lg">{{ bannerMovie.overview }}</p>
+      <div class="banner-action mt-6 space-x-4">
+        <button type="button" class="play-btn bg-red-600 text-white px-4 py-2 rounded" (click)="playVideo('https://www.youtube.com/embed/' + bannerMovie.videoKey + '?rel=0&autoplay=1&showinfo=0&controls=1')">Play</button>
+        <button type="button" class="info-btn bg-gray-700 text-white px-4 py-2 rounded">Info</button>
+        <button type="button" class="logout-btn bg-blue-600 text-white px-4 py-2 rounded" (click)="logout()">Logout</button>
+      </div>
+    </div>
+  </div>
+  <div class="movie-categories px-16 relative z-50 -mt-40 space-y-8">
+    <div class="search-container">
+      <input type="text" placeholder="Search movies..." [(ngModel)]="searchTerm" (input)="searchMovies()" />
+    </div>
+    <div class="custom-videos">
+      <h3 class="text-2xl font-bold text-white">Videos Personalizados</h3>
+      <div class="video-list grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
+        <div *ngFor="let video of customVideos" class="video-item">
+          <div class="video-thumbnail">
+            <img [src]="video.imageUrl" alt="video image" class="w-full h-64 object-cover">
+            <button class="play-btn bg-red-600 text-white px-4 py-2 rounded" (click)="playVideo(video.url)">Play</button>
+          </div>
+          <h4 class="video-title">{{ video.title }}</h4>    
+        <!--<a [href]="video.url" target="_blank" class="video-url text-white">{{ video.url }}</a>-->
+        </div>
+      </div>
+    </div>
+    <app-movie-category
+      [title]="'Popular'"
+      [movieList]="filteredPopularMovies"
+    ></app-movie-category>
+    <app-movie-category
+      [title]="'Top Rated'"
+      [movieList]="filteredTopRatedMovies"
+    ></app-movie-category>
+    <app-movie-category
+      [title]="'Now Playing'"
+      [movieList]="filteredNowPlayingMovies"
+    ></app-movie-category>
+    <app-movie-category
+      [title]="'Upcoming Movies'"
+      [movieList]="filteredUpcomingMovies"
+    ></app-movie-category>
+
+   <!-- <div class="custom-videos">
+      <h3 class="text-2xl font-bold text-white">Videos Personalizados</h3>
+      <div class="video-list grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
+        <div *ngFor="let video of customVideos" class="video-item">
+          <div class="video-thumbnail">
+            <img [src]="video.imageUrl" alt="video image" class="w-full h-64 object-cover">
+            <button class="play-btn bg-red-600 text-white px-4 py-2 rounded" (click)="playVideo(video.url)">Play</button>
+          </div>
+          <h4 class="video-title">{{ video.title }}</h4>    
+        <a [href]="video.url" target="_blank" class="video-url text-white">{{ video.url }}</a>
+        </div>
+      </div>
+    </div> -->
+
+  </div>
+</div>

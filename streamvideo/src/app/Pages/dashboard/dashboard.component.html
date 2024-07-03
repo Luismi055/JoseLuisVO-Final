@@ -1,0 +1,14 @@
+<div class="dashboard-container">
+  <div class="sidebar">
+    <h2>Dashboard</h2>
+    <button (click)="navigateTo('registrar')">Registrar</button>
+    <button (click)="navigateTo('eliminar')">Eliminar</button>
+    <button (click)="navigateTo('usuarios')">Ver Usuarios</button>
+    <button (click)="navigateTo('editar')">Editar</button>
+    <button (click)="navigateTo('añadir')">Añadir Nuevo Video</button>
+    <button (click)="logout()">Salir</button>
+  </div>
+  <div class="content">
+    <router-outlet></router-outlet>
+  </div>
+</div>

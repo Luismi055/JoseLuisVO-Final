@@ -1,0 +1,23 @@
+.header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-image: linear-gradient(to bottom, rgb(14 14 14), rgb(9 9 9 / 7%));
+    z-index: 9999;
+}
+.DASHBOARD-btn {
+    background-color: #e50914; /* Color rojo de Netflix */
+    color: white; /* Color del texto */
+    font-size: 16px; /* Tamaño de la fuente */
+    padding: 10px 20px; /* Relleno del botón */
+    border: none; /* Sin bordes */
+    border-radius: 4px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    transition: background-color 0.3s ease; /* Efecto de transición */
+}
+
+.DASHBOARD-btn:hover {
+    background-color: #f40612; /* Color más claro al pasar el mouse */
+}
+  

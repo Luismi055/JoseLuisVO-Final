@@ -1,0 +1,29 @@
+<div class="nuevo-video-container">
+  <h2 class="heading">{{ editMode ? 'Editar Video' : 'Añadir Nuevo Video' }}</h2>
+  <form (ngSubmit)="addVideo()">
+    <div class="form-field flex justify-center">
+      <input type="text" class="input" name="title" [(ngModel)]="title" placeholder="Título del video" required />
+    </div>
+    <div class="form-field flex justify-center">
+      <input type="text" class="input" name="url" [(ngModel)]="url" placeholder="URL del video" required />
+    </div>
+    <div class="form-field flex justify-center">
+      <input type="text" class="input" name="imageUrl" [(ngModel)]="imageUrl" placeholder="URL de la imagen" required />
+    </div>
+    <div class="action-field">
+      <button class="add-btn" type="submit">{{ editMode ? 'Actualizar Video' : 'Añadir Video' }}</button>
+      <button class="reset-btn" type="button" (click)="resetForm()">Cancelar</button>
+    </div>
+  </form>
+
+  <div class="videos-list">
+    <h2 class="heading">Videos Existentes</h2>
+    <ul>
+      <li *ngFor="let video of videos">
+        <p>{{ video.title }}</p>
+        <button (click)="editVideo(video)">Editar</button>
+        <button (click)="deleteVideo(video.id)">Eliminar</button>
+      </li>
+    </ul>
+  </div>
+</div>
